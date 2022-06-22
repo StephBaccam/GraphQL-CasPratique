@@ -1,0 +1,53 @@
+type Query {
+  produit:[Produit],
+  utilisateur:[Utilisateur]
+}
+
+type Produit {
+  nom: String
+  description: String
+  token: String
+  prix: String
+  stock: Int
+  reference: String
+  created_at: String
+  update_at: String
+}
+
+type Utilisateur {
+  nom: String
+  prenom: String
+  token: String
+  role: String
+  created_at: String
+  update_at: String
+}
+
+type Mutation {
+  returnObjectByCreateProduit(input:ProduitInput!):Produit,
+  returnObjectByCreateUtilisateur(input:UtilisateurInput!):Utilisateur,
+  returnProduitUpdateDataProduitById(id:ID!,input:ProduitInput!):Produit, 
+  returnUtilisateurUpdateDataUtilisateurById(id:ID!,input:UtilisateurInput!):Utilisateur,
+  returnBooleanDeleteDataProduitById(id:ID!):Boolean,
+  returnBooleanDeleteDataUtilisateurById(id:ID!):Boolean
+}
+
+input ProduitInput {
+  nom: String!
+  description: String!
+  token: String!
+  prix: String!
+  stock: Int!
+  reference:String!
+  created_at: String!
+  update_at: String!
+}
+
+input UtilisateurInput {
+  nom: String!
+  prenom: String!
+  token: String!
+  role: String!
+  created_at: String!
+  update_at: String!
+}
